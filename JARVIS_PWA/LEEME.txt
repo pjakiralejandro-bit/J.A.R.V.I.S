@@ -1,0 +1,27 @@
+J.A.R.V.I.S PWA — instrucciones
+
+CONTENIDO
+- index.html: tu archivo original adaptado para PWA (avatar y animación SVG/canvas conservados).
+- manifest.json: configuración de instalación.
+- service-worker.js: caché de la aplicación para abrir la interfaz sin conexión.
+- icons/: iconos de instalación.
+
+PROBAR EN WINDOWS
+1. Extrae el ZIP.
+2. Abre la carpeta en Visual Studio Code.
+3. Usa Live Server o cualquier servidor local HTTP.
+4. Abre la dirección que indique el servidor en Chrome o Edge.
+5. Espera a que cargue la página al menos una vez. En DevTools > Application puedes revisar Manifest y Service Workers.
+6. Usa la opción de instalar aplicación del navegador.
+
+INSTALAR EN ANDROID
+1. Sube la carpeta a un hosting HTTPS (por ejemplo, GitHub Pages, Netlify o Vercel).
+2. Abre la URL HTTPS en Chrome para Android.
+3. Espera a que cargue una vez y el service worker se active.
+4. En el menú del navegador, elige Instalar aplicación o Añadir a pantalla de inicio.
+
+SIN CONEXIÓN: la interfaz, el avatar integrado y los archivos locales se pueden abrir después de la primera carga. Las respuestas de IA de OpenAI/Gemini, transcripción de voz por API y voz TTS de OpenAI necesitan internet. La voz del navegador puede variar según el dispositivo y los idiomas instalados. El micrófono requiere permiso y un contexto seguro (HTTPS o localhost).
+
+SEGURIDAD IMPORTANTE: la versión original guarda las API keys en localStorage del navegador. No publiques esta versión para otras personas con una clave personal: cualquier persona con acceso al navegador puede inspeccionar esa clave. Para una app pública, usa un servidor/backend que guarde la clave fuera del cliente.
+
+ACTUALIZACIONES: cuando cambies los archivos de la app, cambia CACHE_NAME en service-worker.js (por ejemplo, jarvis-pwa-v2) para forzar una caché nueva.
