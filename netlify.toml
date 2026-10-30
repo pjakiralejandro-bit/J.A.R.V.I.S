@@ -1,0 +1,14 @@
+[build]
+  # La app (index.html, manifest, service worker e iconos) vive en esta carpeta
+  publish = "JARVIS_PWA"
+
+# El service worker debe revalidarse siempre para que las actualizaciones lleguen
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Content-Type = "application/manifest+json"
